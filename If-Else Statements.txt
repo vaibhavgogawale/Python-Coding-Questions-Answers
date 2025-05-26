@@ -1,0 +1,293 @@
+1.Write a Python program that checks if a number is positive. 
+
+num = int(input("Enter any number: "))
+
+if (num%2 == 0):
+	print("The given number is positive.")
+else:
+	print("The given number is negative.")
+	
+
+****************************************************************************************************************************************************************
+2.Write a Python program that checks if a given string is empty. 
+
+string = input("Enter the string: ")
+
+if (string == ""):
+	print("The given string is empty.")
+else:
+	print("The given string is not empty.")
+
+
+****************************************************************************************************************************************************************
+3.Write a Python program that checks if a given year is a leap year. 
+
+year = int(input("Enter the year (YYYY): "))
+
+if year%4 == 0 and year%100 != 0 or (year%400 == 0):
+	print(f"{year} is leap year.")
+else:
+	print(f"{year} is not leap year")
+
+****************************************************************************************************************************************************************
+4.Write a Python program that checks if a given character is a vowel or a consonant. 
+
+char = input("Enter any char: ")
+vowels = ['A','E',''I,'O','U',a'','e','i','o','o','u']
+
+if char in vowels:
+	print("The given char is vowel")
+else:
+	print("The given char is consonant")
+
+****************************************************************************************************************************************************************
+5.Write a Python program that checks if a given year is a century year (ending in '00'). 
+
+year = int(input("Enter the year (YYYY): "))
+
+if year%100 == 0:
+	print(f"{year} is a century year.")
+else:
+    print(f"{year} is not a century year.")
+
+****************************************************************************************************************************************************************
+6.Write a Python program that checks if a given number is prime. 
+
+num = int(input("Enter any number: "))
+
+if num > 1:
+	for i in range(2,num):
+		if num%i == 0:
+			print(f"{num} is a not prime number")
+			break
+	else:
+		print(f"{num} is a prime number")
+
+****************************************************************************************************************************************************************
+7.Write a Python program that checks if a person is eligible to vote based on their age. 
+
+age = int(input("Enter the age: "))
+
+if age > 18:
+	print("You are eligible for voting")
+else:
+	print("You are not eligible for voting")
+
+****************************************************************************************************************************************************************
+8.Write a Python program that determines if a given number is zero or non-zero. 
+
+num = int(input("Enter any number: "))
+
+if num == 0:
+	print("The given number is zero")
+else:
+	print("The given number is not zero")
+
+****************************************************************************************************************************************************************
+9.Write a Python program that checks if a number is positive or non-positive (including zero). 
+
+num = int(input("Enter any number: "))
+
+if num >= 0:
+	print("The given number is positive")
+else:
+	print("The given number is non-positive")
+
+****************************************************************************************************************************************************************
+10.Write a Python program that compares two numbers and prints the largest one. 
+
+num1 = int(input("Enter any number1: "))
+num2 = int(input("Enter any number2: "))
+
+if num1 > num2:
+	print(f"{num1} is largest one")
+else:
+	print(f"{num2} is largest one")
+
+****************************************************************************************************************************************************************
+11.Write a Python program that checks if a given character is a letter or not. 
+
+char = input("Enter any character: ")
+
+if char.isalpha():
+	print("The given Character is a letter")
+else:
+	print("The given Character is not a letter")
+
+****************************************************************************************************************************************************************
+12.Write a Python program that checks if a number is even or non-even (odd). 
+
+num = int(input("Enter any number: "))
+
+if num%2 == 0:
+	print("The given number is even")
+else:
+	print("The given number is non-even(odd)")
+
+****************************************************************************************************************************************************************
+13.Write a Python program that finds and prints the smallest of three numbers.
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+num3 = int(input("Enter third number: "))
+
+if (num1<num2 or num1<num3):
+	print(f"{num1} is smallest")
+elif (num2<num3):
+	print(f"{num2} is smallest")
+else:
+	print(f"{num3} is smallest")
+
+
+****************************************************************************************************************************************************************
+14.Write a Python program that checks if a year is a leap year or not. 
+
+year = int(input("Enter the year (YYYY): "))
+
+if year%4 == 0 and year%100 != 0 or (year%400 == 0):
+	print(f"{year} is leap year.")
+else:
+	print(f"{year} is not leap year")
+
+****************************************************************************************************************************************************************
+15.Write a Python program that checks if a number is a multiple of 5 or not. 
+
+num = int(input("Enter the number: "))
+
+if num%5 == 0:
+	print(f"{num} is multiple of 5")
+else:
+	print(f"{num} is not multiple of 5")
+
+****************************************************************************************************************************************************************
+16.Write a Python program that classifies a number as positive, negative, or zero using nested if-else statements. 
+
+num = int(input("Enter the number: "))
+
+if num >= 0:
+	if num == 0:
+		print("The given number is zero")
+	else:
+		print("The given number is positive")
+else:
+	print("The given number is negative")
+
+****************************************************************************************************************************************************************
+17.Write a Python program that checks if a number is a multiple of both 2 and 3. 
+
+num = int(input("Enter the number: "))
+
+if num%2 == 0 and num%3 == 0:
+	print(f"{num} is multiple of 2 and 3")
+else:
+	print(f"{num} is not multiple of 2 and 3")
+
+****************************************************************************************************************************************************************
+18.Write a Python program to check if a given string is a palindrome. 
+
+string = input("Enter the string: ")
+
+if string == string[::-1]:
+	print("The given string is palindrome")
+else:
+	print("The given string is not palindrome")
+
+****************************************************************************************************************************************************************
+19.Write a Python program to check if a character is a vowel or a consonant. 
+
+char = input("Enter any char: ")
+vowels = ['A','E',''I,'O','U',a'','e','i','o','o','u']
+
+if char in vowels:
+	print("The given char is vowel")
+else:
+	print("The given char is consonant")
+
+****************************************************************************************************************************************************************
+20.Write a Python program that finds and prints the largest of four numbers. 
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+num3 = int(input("Enter third number: "))
+num4 = int(input("Enter fourth number: "))
+
+if num1>num2 and num1>num3 and num1>num4:
+	print(f"{num1} is largest number")
+elif num2>num3 and num2>num4:
+	print(f"{num2} is largest number")
+elif num3>num4:
+	print(f"{num3} is largest number")
+else:
+	print(f"{num4} is largest number")
+
+****************************************************************************************************************************************************************
+21.Write a Python program that takes two numbers as input and determines the sign of their difference. 
+
+a = eval(input("Enter the first number: "))
+b = eval(input("Enter the second number: "))
+
+difference = a - b
+
+if difference > 0:
+    print("The difference is positive.")
+elif difference < 0:
+    print("The difference is negative.")
+else:
+    print("The difference is zero.")
+
+
+****************************************************************************************************************************************************************
+22.Write a Python program that checks if a given year is a leap year using an alternative method. 
+
+year = int(input("Enter a year: "))
+
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(f"{year} is a leap year.")
+        else:
+            print(f"{year} is not a leap year.")
+    else:
+        print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+
+
+****************************************************************************************************************************************************************
+23.Write a Python program that checks if a number is a multiple of 7 or not. 
+
+num = int(input("Enter the number: "))
+
+if num%7 == 0:
+	print(f"{num} is multiple of 7")
+else:
+	print(f"{num} is not multiple of 7")
+
+****************************************************************************************************************************************************************
+24.Write a Python program that checks if a character is a vowel or not (case-insensitive). 
+
+char = input("Enter a character: ")
+
+if len(char) == 1 and char.isalpha():
+    if char.lower() in ['a', 'e', 'i', 'o', 'u']:
+        print(f"'{char}' is a vowel.")
+    else:
+        print(f"'{char}' is not a vowel.")
+else:
+    print("Please enter a single alphabet character.")
+
+
+****************************************************************************************************************************************************************
+25.Write a Python program that calculates and prints the absolute value of a given number. 
+
+num = int(input("Enter a number: "))
+
+if num < 0:
+    absolute_value = -num
+else:
+    absolute_value = num
+
+print(f"The absolute value of {num} is {absolute_value}.")
+
+
+****************************************************************************************************************************************************************
