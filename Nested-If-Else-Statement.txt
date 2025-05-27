@@ -1,0 +1,329 @@
+1.Given x = 10 and y = 5, write a Python program to determine if x is greater than y. If x is 
+greater than y,check if it's also greater than 15 and print appropriate messages accordingly. 
+
+# Given values
+x = 10
+y = 5
+
+# Check if x is greater than y
+if x > y:
+    print("x is greater than y.")
+    
+    # Check if x is also greater than 15
+    if x > 15:
+        print("x is also greater than 15.")
+    else:
+        print("x is not greater than 15.")
+else:
+    print("x is not greater than y.")
+
+****************************************************************************************************************************************************************
+2.Write a Python program that takes a grade as input and prints the corresponding letter 
+grade. If the grade is less than 70, also print "You failed." 
+
+# Take grade input from the user
+grade = float(input("Enter your grade (0-100): "))
+
+# Determine letter grade
+if grade >= 90:
+    letter = 'A'
+elif grade >= 80:
+    letter = 'B'
+elif grade >= 70:
+    letter = 'C'
+else:
+    letter = 'F'
+
+# Print letter grade
+print(f"Your letter grade is: {letter}")
+
+# Check for failure
+if grade < 70:
+    print("You failed.")
+
+****************************************************************************************************************************************************************
+3.Write a Python program to check if a person is eligible for a credit card based on their age 
+and income.If the person is underage, print "You are underage." If they are of age but have an 
+income below $30,000, print "Your income is too low for a credit card." 
+
+# Takes age and income
+age = int(input("Enter your age: "))
+
+# Checking age
+if age >= 21:
+	
+	# If age greater than equal to 21 then takes income input
+	income = int(input("Enter your income: "))
+	
+	# Checking income
+	if income > 30000:
+		print("You are eligible for a credit card.")
+	else:
+		print("Your income is too low for a credit card.")
+else:
+	print("You are underage")
+
+****************************************************************************************************************************************************************
+4.Write a Python program to determine if a given number num is even or odd. If it's even, 
+check if it's greater than 10 and print appropriate messages. 
+
+# Take input from the user
+num = int(input("Enter the number: "))
+
+# Checking number is even or not
+if num%2 == 0:
+	print(f"{num} is Even")
+	
+	# Further check if it's grater than 10
+	if num>10:
+		print(f"{num} is greater than 10")
+	else:
+		print(f"{num} is not greater than 10")
+
+else:
+	print(f"{num} is Odd")
+
+****************************************************************************************************************************************************************
+5.Write a Python program that calculates the ticket price for a theme park based on age and height. 
+If a person is under 12 years old and under 4 feet tall, their ticket price is $10. 
+If they are under 12 but 4 feet tall or taller, their ticket price is $15. 
+For individuals 12 and older who are 4 feet tall or taller, the ticket price is $20. 
+
+# Take age and height as input
+age = int(input("Enter your age: "))
+height = float(input("Enter your height in feet: "))
+
+# Determine ticket price based on age and height
+if age < 12:
+    if height < 4:
+        price = 10
+    else:
+        price = 15
+else:
+    if height >= 4:
+        price = 20
+    else:
+        price = 0  # Assuming people 12+ under 4 feet are not allowed or undefined
+
+# Print the result
+if price > 0:
+    print(f"Your ticket price is ${price}.")
+else:
+    print("No ticket price defined for your category.")
+
+****************************************************************************************************************************************************************
+6.Write a Python program for user authentication. Ask the user to enter their username and password. 
+If both the username and password are correct, print "Access granted." If the 
+username is correct but the password is incorrect,print "Incorrect password." If the username is incorrect, print "Invalid username." 
+
+# Predefined correct username and password
+correct_username = "admin"
+correct_password = "12345"
+
+# Ask user for input
+username = input("Enter username: ")
+password = input("Enter Password: ")
+
+# Authentication Logic
+if username == correct_username:
+	if password == correct_password:
+		print("Access granted")
+	else:
+		print("Incorrect password")
+
+else:
+	print("Invalid username")
+
+**************************************************************************************************************************************************************** 
+7.Write a Python program for ordering food. Ask the user to select a type of food (e.g., "Burger" or "Pizza").
+If they choose "Burger," ask if they want fries. If they choose "Pizza," ask if they want extra cheese. Print their order with the additional items if chosen.
+
+# Ask the user to select a food item
+food = input("What would you like to order? (Burger/Pizza): ")
+
+# Convert to lowercase for case-insensitive comparison
+food = food.lower()
+
+# Initialize order details
+order = ""
+
+if food == "burger":
+    fries = input("Would you like fries with your burger? (yes/no): ")
+    order = "Burger"
+    if fries.lower() == "yes":
+        order += " with fries"
+elif food == "pizza":
+    cheese = input("Would you like extra cheese on your pizza? (yes/no): ")
+    order = "Pizza"
+    if cheese.lower() == "yes":
+        order += " with extra cheese"
+else:
+    order = "Invalid food selection."
+
+# Print the final order
+print("Your order:", order)
+
+****************************************************************************************************************************************************************
+8.Write a Python program that takes an integer as input and checks if it's positive, negative, or 
+zero. If it's positive,check if it's even or odd. Print the appropriate messages. 
+
+# Take integer input from the user
+num = int(input("Enter the number: "))
+
+# Check if the number is positive, negative, or zero
+if num >= 0:
+	print("The given number is positive")
+	
+	# Further check if it's even or odd
+	if num % 2 == 0:
+		print("Number is even")
+	else:
+		print("Number is odd")
+		
+elif num < 0:
+	print("The given number is negative")
+
+else:
+	print("The given number is zero")
+
+****************************************************************************************************************************************************************
+9.Write a Python program that asks for a user's age and whether they have a driver's license. 
+If the user is 18 or older and has a driver's license, print "You are eligible to drive."
+Otherwise, print "You are not eligible to drive." 
+
+# Ask for user's age
+age = int(input("Enter your age: "))
+
+# Check eligibility
+if age>=18:
+	
+	# Ask if the user has a driver's license
+	licence = input("Do you have driving license? (yes/no): ").lower()
+	
+	if license == "yes":
+		print("You are eligible to drive.")
+	else:
+		print("You are not eligible to drive.")
+
+else:
+	print("You are underage.")
+
+****************************************************************************************************************************************************************
+10.Write a Python program that checks if a person is eligible to vote. Ask for the person's age 
+and whether they are a citizen.If the person is at least 18 years old and a citizen, print "You 
+are eligible to vote." Otherwise, print "You are not eligible to vote." 
+
+# Ask for user's age
+age = int(input("Enter your age: "))
+
+# Check voting eligibility
+if age >= 18:
+
+    # Ask if the user is a citizen
+    citizen = input("Are you a citizen? (yes/no): ").lower()
+
+    if citizen == "yes":
+        print("You are eligible to vote.")
+    else:
+        print("You are not eligible to vote.")
+else:
+    print("You are underage to vote.")
+
+
+****************************************************************************************************************************************************************
+11.Write a Python program that takes three numbers as input and prints them in ascending order.
+
+# Take three numbers as input
+num1 = eval(input("Enter the first number: "))
+num2 = eval(input("Enter the second number: "))
+num3 = eval(input("Enter the third number: "))
+
+# Store the numbers in a list
+numbers = [num1, num2, num3]
+
+# Sort the list
+numbers.sort()
+
+# Print the sorted numbers
+print("Numbers in ascending order:", numbers[0], numbers[1], numbers[2])
+
+****************************************************************************************************************************************************************
+12.Write a Python program for a store that calculates discounts based on the purchase amount and membership status. 
+Ask theuser for the purchase amount and whether they have a membership. If the purchase amount is greater than $100 and they havea membership, apply 
+a 20% discount. If the purchase amount is greater than $100 without a membership, apply a 10% discount. Otherwise, no discount is applied. 
+
+
+
+****************************************************************************************************************************************************************
+13.Write a Python program that classifies a character as a vowel, consonant, or neither. Ask 
+the user to enter a single character.If it's a vowel (a, e, i, o, u), print "Vowel." If it's a 
+consonant, print "Consonant." If it's neither (e.g., a digit or special character), print "Neither." 
+
+
+
+****************************************************************************************************************************************************************
+14.Write a Python program that recommends books based on the reader's age and genre preference. 
+Ask the user for their age andfavorite genre ("Mystery," "Fantasy," or "Science Fiction"). Recommend different books based on their input. 
+
+
+
+****************************************************************************************************************************************************************
+15.Write a Python program that calculates the price of movie tickets based on age and time of 
+day. Ask the userfor their age and whether it's a matinee show (before 5 PM). If the person is 
+under 12 or over 65,they get a discount. Apply different pricing rules based on age and showtime. 
+
+
+
+****************************************************************************************************************************************************************
+16.Write a Python program for a delivery service that calculates delivery charges based on 
+distance and order amount.Ask the user for the distance (in miles) and order amount. Apply 
+different charges based on the distance and order amount. 
+
+
+
+****************************************************************************************************************************************************************
+17.Write a Python program that calculates employee bonuses based on performance and years of service. 
+Ask the user for theemployee's performance rating (Excellent, Good, or Average) and years of service. Calculate and print the bonus amount. 
+
+
+
+****************************************************************************************************************************************************************
+18.Write a Python program for a library that calculates late fees for borrowed books. Ask the 
+user for the number ofdays the book is overdue and the type of book (regular or reference). 
+Calculate and print the late fee. 
+
+
+
+****************************************************************************************************************************************************************
+19.Write a Python program that determines whether a student is eligible for a scholarship based on their GPA and extracurricularactivities. 
+Ask for the student's GPA and the number of extracurricular activities they are involved in. Award the scholarshipif GPA is above 3.5 and 
+they are involved in at least 3 activities. 
+
+
+
+****************************************************************************************************************************************************************
+20.Write a Python program that recommends clothing based on the weather temperature and 
+whether it's raining. Ask theuser for the temperature (in degrees Celsius) and whether it's 
+raining. Provide clothing recommendations accordingly. 
+
+
+
+****************************************************************************************************************************************************************
+21.Write a Python program that recommends a movie based on the user's preferences. Ask the 
+user for theirpreferred genre and age group, and provide movie recommendations accordingly. 
+
+
+
+****************************************************************************************************************************************************************
+22.Write a Python program that determines whether a credit card application is approved 
+based on the applicant's credit scoreand income. Ask the user for their credit score and annual income, and provide an approval status. 
+
+
+
+****************************************************************************************************************************************************************
+23.Write a Python program for vehicle registration based on the type of vehicle and emissions. 
+Ask the user for thevehicle type (car or truck) and emissions status (clean or high). Provide the registration fee based on the inputs. 
+
+
+
+****************************************************************************************************************************************************************
