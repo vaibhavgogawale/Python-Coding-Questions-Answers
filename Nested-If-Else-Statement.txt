@@ -249,9 +249,32 @@ print("Numbers in ascending order:", numbers[0], numbers[1], numbers[2])
 
 ****************************************************************************************************************************************************************
 12.Write a Python program for a store that calculates discounts based on the purchase amount and membership status. 
-Ask theuser for the purchase amount and whether they have a membership. If the purchase amount is greater than $100 and they havea membership, apply 
+Ask the user for the purchase amount and whether they have a membership. If the purchase amount is greater than $100 and they havea membership, apply 
 a 20% discount. If the purchase amount is greater than $100 without a membership, apply a 10% discount. Otherwise, no discount is applied. 
 
+# Ask for the purchase amount
+amount = float(input("Enter the purchase amount: $"))
+
+# Ask if the user has a membership
+member_input = input("Do you have a membership? (yes/no): ").lower()
+
+# Initialize discount
+discount = 0
+
+# Apply discount based on conditions
+if amount > 100:
+    if member_input == "yes":
+        discount = 0.20  # 20% discount
+    else:
+        discount = 0.10  # 10% discount
+
+# Calculate final amount
+discount_amount = amount * discount
+final_price = amount - discount_amount
+
+# Display results
+print(f"Discount applied: ${discount_amount:.2f}")
+print(f"Total amount to pay: ${final_price:.2f}")
 
 
 ****************************************************************************************************************************************************************
@@ -259,32 +282,158 @@ a 20% discount. If the purchase amount is greater than $100 without a membership
 the user to enter a single character.If it's a vowel (a, e, i, o, u), print "Vowel." If it's a 
 consonant, print "Consonant." If it's neither (e.g., a digit or special character), print "Neither." 
 
+# Ask the user to enter a single character
+char = input("Enter a single character: ").lower()
 
+# Check if exactly one character was entered
+if len(char) != 1:
+	print("Please enter exactly one character..")
+else:
+	# Check if it's an alphabet letter
+	if char.isalpha():
+		if char in "aeiou":
+			print("The given character is vowel")
+		else:
+			print("The given character is consonant")
+	else:
+		print("Neither")
 
 ****************************************************************************************************************************************************************
 14.Write a Python program that recommends books based on the reader's age and genre preference. 
-Ask the user for their age andfavorite genre ("Mystery," "Fantasy," or "Science Fiction"). Recommend different books based on their input. 
+Ask the user for their age and favorite genre ("Mystery," "Fantasy," or "Science Fiction"). Recommend different books based on their input. 
 
+# Ask for user's age and genre preference
+age = int(input("Enter your age: "))
+genre = input("Enter your favorite genre (Mystery, Fantasy, Science Fiction): ").lower()
+
+# Book recommendations based on age and genre
+if genre == "mystery":
+    if age < 13:
+        print("Recommended Book: *Nancy Drew Series* by Carolyn Keene")
+    elif age < 18:
+        print("Recommended Book: *One of Us Is Lying* by Karen M. McManus")
+    else:
+        print("Recommended Book: *The Girl with the Dragon Tattoo* by Stieg Larsson")
+
+elif genre == "fantasy":
+    if age < 13:
+        print("Recommended Book: *Harry Potter Series* by J.K. Rowling")
+    elif age < 18:
+        print("Recommended Book: *Eragon* by Christopher Paolini")
+    else:
+        print("Recommended Book: *The Name of the Wind* by Patrick Rothfuss")
+
+elif genre == "science fiction":
+    if age < 13:
+        print("Recommended Book: *The Wild Robot* by Peter Brown")
+    elif age < 18:
+        print("Recommended Book: *Ender's Game* by Orson Scott Card")
+    else:
+        print("Recommended Book: *Dune* by Frank Herbert")
+
+else:
+    print("Sorry, we don't have recommendations for that genre.")
 
 
 ****************************************************************************************************************************************************************
 15.Write a Python program that calculates the price of movie tickets based on age and time of 
-day. Ask the userfor their age and whether it's a matinee show (before 5 PM). If the person is 
+day. Ask the user for their age and whether it's a matinee show (before 5 PM). If the person is 
 under 12 or over 65,they get a discount. Apply different pricing rules based on age and showtime. 
+
+# Ask for user's age
+age = int(input("Enter your age: "))
+
+# Ask if it's a matinee show
+matinee_input = input("Is it a matinee show (before 5 PM)? (yes/no): ").lower()
+
+# Set base ticket prices
+regular_price = 12.00
+matinee_price = 8.00
+
+# Determine if the user qualifies for a discount
+is_discount_eligible = age < 12 or age > 65
+
+# Calculate final ticket price
+if matinee_input == "yes":
+    if is_discount_eligible:
+        price = matinee_price - 2  # $2 discount
+    else:
+        price = matinee_price
+else:
+    if is_discount_eligible:
+        price = regular_price - 2  # $2 discount
+    else:
+        price = regular_price
+
+# Display the result
+print(f"Your movie ticket price is: ${price:.2f}")
 
 
 
 ****************************************************************************************************************************************************************
 16.Write a Python program for a delivery service that calculates delivery charges based on 
-distance and order amount.Ask the user for the distance (in miles) and order amount. Apply 
-different charges based on the distance and order amount. 
+distance and order amount. Ask the user for the distance (in miles) and order amount. 
+Apply different charges based on the distance and order amount. 
 
+# Get user inputs
+distance = float(input("Enter delivery distance in miles: "))
+order_amount = float(input("Enter order amount in dollars: $"))
 
+# Determine delivery charges
+
+if distance <= 5:
+    if order_amount >= 50:
+        delivery_fee = 0
+    else:
+        delivery_fee = 5
+
+elif distance <= 20:
+    delivery_fee = 10
+
+else:
+    delivery_fee = None
+
+if delivery_fee is None:
+    print("Sorry, delivery is not available for distances over 20 miles.")
+else:
+    total=order_amount+delivery_fee
+    print(f"Delivery fee: ${delivery_fee:.2f}")
+    print(f"Total amount to pay: ${total:.2f}")
 
 ****************************************************************************************************************************************************************
 17.Write a Python program that calculates employee bonuses based on performance and years of service. 
-Ask the user for theemployee's performance rating (Excellent, Good, or Average) and years of service. Calculate and print the bonus amount. 
+Ask the user for the employee's performance rating (Excellent, Good, or Average) and years of service. 
+Calculate and print the bonus amount. 
 
+# Get user input
+performance = input("Enter performance rating (Excellent, Good, Average): ").lower()
+years = int(input("Enter years of service: "))
+salary = float(input("Enter current salary: $"))
+
+# Determine bonus percentage
+if performance == "excellent":
+    if years >= 5:
+        bonus_rate = 0.20
+    else:
+        bonus_rate = 0.15
+elif performance == "good":
+    if years >= 5:
+        bonus_rate = 0.10
+    else:
+        bonus_rate = 0.05
+elif performance == "average":
+    bonus_rate = 0.02
+else:
+    bonus_rate = 0
+    print("Invalid performance rating entered.")
+
+# Calculate bonus and display results
+if bonus_rate > 0:
+    bonus = salary * bonus_rate
+    print(f"Bonus percentage: {bonus_rate * 100}%")
+    print(f"Bonus amount: ${bonus:.2f}")
+else:
+    print("No bonus calculated due to invalid input.")
 
 
 ****************************************************************************************************************************************************************
@@ -292,6 +441,25 @@ Ask the user for theemployee's performance rating (Excellent, Good, or Average) 
 user for the number ofdays the book is overdue and the type of book (regular or reference). 
 Calculate and print the late fee. 
 
+# Ask for user input
+days_overdue = int(input("Enter the number of days the book is overdue: "))
+book_type = input("Enter the type of book (regular/reference): ").lower()
+
+# Set fee rates
+if book_type == "regular":
+    fee_per_day = 0.25
+elif book_type == "reference":
+    fee_per_day = 1.00
+else:
+    fee_per_day = None
+    print("Invalid book type entered.")
+
+# Calculate and print fee
+if fee_per_day is not None:
+    total_fee = days_overdue * fee_per_day
+    print(f"Late fee: ${total_fee:.2f}")
+else:
+    print("Could not calculate late fee due to invalid book type.")
 
 
 ****************************************************************************************************************************************************************
@@ -299,31 +467,137 @@ Calculate and print the late fee.
 Ask for the student's GPA and the number of extracurricular activities they are involved in. Award the scholarshipif GPA is above 3.5 and 
 they are involved in at least 3 activities. 
 
+# Ask for GPA and number of extracurricular activities
+gpa = float(input("Enter your GPA: "))
+activities = int(input("Enter the number of extracurricular activities you are involved in: "))
 
+# Check eligibility
+if gpa > 3.5 and activities >= 3:
+    print("You are eligible for the scholarship.")
+else:
+    print("You are not eligible for the scholarship.")
 
 ****************************************************************************************************************************************************************
 20.Write a Python program that recommends clothing based on the weather temperature and 
 whether it's raining. Ask theuser for the temperature (in degrees Celsius) and whether it's 
 raining. Provide clothing recommendations accordingly. 
 
+# Get input from user
+temperature = float(input("Enter the temperature in °C: "))
+raining_input = input("Is it raining? (yes/no): ").lower()
+
+# Determine if it's raining
+is_raining = raining_input == "yes"
+
+# Clothing recommendation logic
+if temperature >= 25:
+    print("It's warm. Wear light clothes like a t-shirt and shorts.")
+elif 15 <= temperature < 25:
+    print("It's mild. Wear a long-sleeve shirt or a light jacket.")
+elif 5 <= temperature < 15:
+    print("It's cool. Wear a jacket or sweater.")
+else:
+    print("It's cold. Wear a coat, scarf, and gloves.")
+
+# Additional recommendation if it's raining
+if is_raining:
+    print("Also, don't forget to bring an umbrella or wear a raincoat!")
 
 
 ****************************************************************************************************************************************************************
 21.Write a Python program that recommends a movie based on the user's preferences. Ask the 
 user for theirpreferred genre and age group, and provide movie recommendations accordingly. 
 
+# Get user preferences
+genre = input("Enter your preferred genre (Action, Comedy, Drama, Animation, Horror): ").lower()
+age_group = input("Enter your age group (Child, Teen, Adult): ").lower()
+
+# Movie recommendation logic
+if age_group == "child":
+    if genre == "animation":
+        movie = "Toy Story"
+    elif genre == "comedy":
+        movie = "The Lego Movie"
+    else:
+        movie = "Try a family-friendly animated movie like Moana."
+
+elif age_group == "teen":
+    if genre == "action":
+        movie = "Spider-Man: Homecoming"
+    elif genre == "comedy":
+        movie = "Mean Girls"
+    elif genre == "drama":
+        movie = "The Perks of Being a Wallflower"
+    elif genre == "horror":
+        movie = "Scary Stories to Tell in the Dark"
+    else:
+        movie = "Try a teen-friendly adventure movie like Jumanji."
+
+elif age_group == "adult":
+    if genre == "action":
+        movie = "John Wick"
+    elif genre == "comedy":
+        movie = "The Hangover"
+    elif genre == "drama":
+        movie = "The Shawshank Redemption"
+    elif genre == "horror":
+        movie = "Get Out"
+    else:
+        movie = "Try a popular film like Inception."
+
+else:
+    movie = "Invalid age group entered. Please choose Child, Teen, or Adult."
+
+# Output the recommendation
+print(f"Recommended movie: {movie}")
 
 
 ****************************************************************************************************************************************************************
 22.Write a Python program that determines whether a credit card application is approved 
 based on the applicant's credit scoreand income. Ask the user for their credit score and annual income, and provide an approval status. 
 
+# Get user input
+credit_score = int(input("Enter your credit score: "))
+income = float(input("Enter your annual income (in dollars): "))
 
+# Determine approval status
+if credit_score >= 700 and income >= 40000:
+    print("Status: Approved")
+elif credit_score >= 650 and income >= 30000:
+    print("Status: Application under further review")
+else:
+    print("Status: Denied")
 
 ****************************************************************************************************************************************************************
 23.Write a Python program for vehicle registration based on the type of vehicle and emissions. 
 Ask the user for thevehicle type (car or truck) and emissions status (clean or high). Provide the registration fee based on the inputs. 
 
+# Get input from user
+vehicle_type = input("Enter vehicle type (car or truck): ").lower()
+emissions = input("Enter emissions status (clean or high): ").lower()
 
+# Determine registration fee
+if vehicle_type == "car":
+    if emissions == "clean":
+        fee = 100
+    elif emissions == "high":
+        fee = 150
+    else:
+        fee = None
+elif vehicle_type == "truck":
+    if emissions == "clean":
+        fee = 200
+    elif emissions == "high":
+        fee = 300
+    else:
+        fee = None
+else:
+    fee = None
+
+# Display the result
+if fee is not None:
+    print(f"Registration fee: ${fee}")
+else:
+    print("Invalid input. Please enter valid vehicle type and emissions status.")
 
 ****************************************************************************************************************************************************************
