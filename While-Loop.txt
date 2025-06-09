@@ -272,27 +272,155 @@ while row < n:
 ****************************************************************************************************************************************************************
 16.Create a program that converts a given integer into words (e.g., 123 -> "one hundred twenty-three") using a while loop. 
 
+# Define word mappings
+ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", 
+         "sixteen", "seventeen", "eighteen", "nineteen"]
+tens = ["", "", "twenty", "thirty", "forty", "fifty", 
+        "sixty", "seventy", "eighty", "ninety"]
 
+num = int(input("Enter a number (0 - 999): "))
+
+if num == 0:
+    print("zero")
+else:
+    words = ""
+
+    # Handle hundreds
+    if num >= 100:
+        words += ones[num // 100] + " hundred"
+        num %= 100
+        if num != 0:
+            words += " "
+
+    # Handle tens and ones
+    while num > 0:
+        if num < 10:
+            words += ones[num]
+            num = 0
+        elif num < 20:
+            words += teens[num - 10]
+            num = 0
+        else:
+            words += tens[num // 10]
+            num %= 10
+            if num != 0:
+                words += "-" + ones[num]
+            num = 0
+
+    print(words)
 
 ****************************************************************************************************************************************************************
 17.Write a program to reverse a given string using a while loop. 
 
+# Ask the user to enter a string
+text = input("Enter a string: ")
 
+# Initialize variables
+reversed_text = ""
+index = len(text) - 1
+
+# Loop to reverse the string
+while index >= 0:
+    reversed_text += text[index]
+    index -= 1
+
+# Print the reversed string
+print("Reversed string:", reversed_text)
 
 ****************************************************************************************************************************************************************
 18.Implement a program to find the greatest common divisor of two numbers using a while loop and the Euclidean algorithm. 
+
+# Input two numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+# Euclidean Algorithm using while loop
+while b != 0:
+    temp = b
+    b = a % b
+    a = temp
+
+# Print the GCD
+print("The Greatest Common Divisor is:", a)
+
+****************************************************************************************************************************************************************
 19.Create a program that converts a binary number (entered as a string) to its decimal equivalent using a while loop. 
+
+# Ask the user to enter a binary number
+binary = input("Enter a binary number: ")
+
+# Initialize variables
+decimal = 0
+power = 0
+index = len(binary) - 1
+
+# Loop through the binary digits from right to left
+while index >= 0:
+    digit = int(binary[index])
+    decimal += digit * (2 ** power)
+    power += 1
+    index -= 1
+
+# Print the result
+print("Decimal equivalent:", decimal)
+
+****************************************************************************************************************************************************************
 20. Write a program that prints all prime numbers between 1 and 100 using a while loop 
-21.Implement a program to calculate the result of raising a number to a given power using a 
-while loop, without using the built-in exponentiation operator. 
+
+num = 2  # Start from the first prime number
+
+while num <= 100:
+    is_prime = True
+    i = 2
+
+    while i <= num // 2:
+        if num % i == 0:
+            is_prime = False
+            break
+        i += 1
+
+    if is_prime:
+        print(num, end=" ")
+
+    num += 1
+
+****************************************************************************************************************************************************************
+21.Implement a program to calculate the result of raising a number to a given power using a while loop, without using the built-in exponentiation operator. 
+
+# Input from the user
+base = int(input("Enter the base: "))
+exponent = int(input("Enter the exponent (non-negative): "))
+
+# Initialize result
+result = 1
+count = 0
+
+# Calculate power using while loop
+while count < exponent:
+    result *= base
+    count += 1
+
+# Print the result
+print(f"{base} raised to the power {exponent} is: {result}")
+
+****************************************************************************************************************************************************************
 22.Implement the Newton-Raphson method to calculate the square root of a number using a while loop. 
-23. Write a program to explore the Collatz conjecture for a given starting number. Count how many iterations it takes to reach 1. 
-24. Create a program that calculates and prints the prime factorization of a given number using a while loop. 
-25.Build a program that searches for a specific word in a text using a while loop. Provide the index of the word's first occurrence 
-26.Generate the Farey sequence of order n using a while loop. The Farey sequence is a list of 
-all simplified fractions between 0 and 1 with denominators less than or equal to n. 
-27. Implement matrix multiplication (matrix dot product) using nested while loops. 
-28.Write a program to calculate the value of the Ackermann function for given inputs (m, n) 
-using a while loop. The Ackermann function is a recursive function. 
-29.Given an unsorted array of integers, find the length of the longest consecutive elements sequence using a while loop. 
-30.Implement a Sudoku solver using a while loop and backtracking algorithm to solve a Sudoku puzzle
+
+# Input from user
+num = float(input("Enter a positive number to find its square root: "))
+
+# Initial guess (can be any positive number)
+guess = num / 2.0
+
+# Tolerance level for accuracy
+tolerance = 0.00001
+
+# Newton-Raphson iteration
+while abs(guess * guess - num) > tolerance:
+    guess = (guess + num / guess) / 2
+
+# Print the result
+print(f"The square root of {num} is approximately: {guess}")
+
+****************************************************************************************************************************************************************
